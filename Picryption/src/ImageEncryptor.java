@@ -220,7 +220,7 @@ public class ImageEncryptor {
 			//add up numerical representation of the x,y
 			//coordinates where the next pixel should be placed
 			offset = offset+msg.charAt(i);
-			
+
 			//break the numerical representation into x,y coordinates
 			if(image.getWidth() > image.getHeight()){
 				y = offset%carriage;

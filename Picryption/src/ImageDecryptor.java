@@ -131,7 +131,7 @@ public class ImageDecryptor {
 		//the encoding process is different depending on whether the or not 
 		//the picture is longer than wide or wider than long.  The decoding 
 		//process matches that
-		if(image.getHeight() > image.getWidth()){
+		if(image.getHeight() >= image.getWidth()){
 			for (int y = 0; y < image.getHeight(); y++) {
 				for (int x = 0; x < image.getWidth(); x++) {
 					int  intCol   = image.getRGB(x, y);
