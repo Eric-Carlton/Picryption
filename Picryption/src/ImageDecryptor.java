@@ -34,6 +34,10 @@ public class ImageDecryptor {
 		//try to load the image specified
 		try {
 			this.image = ImageIO.read(file);
+			if(this.image.getHeight() < 256 || this.image.getWidth() < 256){
+				JOptionPane.showMessageDialog(null, "Image must be 256 X 256 or larger for operation to succeed.", "Picryption", JOptionPane.ERROR_MESSAGE);
+				System.exit(0);
+			}
 		}catch(Exception e){
 
 		}

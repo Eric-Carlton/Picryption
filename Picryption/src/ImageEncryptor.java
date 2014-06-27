@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 
 public class ImageEncryptor {
@@ -35,6 +36,11 @@ public class ImageEncryptor {
 		//try to retrieve image from location specified
 		try {
 			this.image = ImageIO.read(file);
+			if(this.image.getHeight() < 256 || this.image.getWidth() < 256){
+				JOptionPane.showMessageDialog(null, "Image must be 256 X 256 or larger for operation to succeed.", "Picryption", JOptionPane.ERROR_MESSAGE);
+				System.exit(0);
+			}
+				
 		}catch(Exception e){
 
 		}
@@ -51,8 +57,7 @@ public class ImageEncryptor {
 		/*
 		 * The encode color will appear exactly 700 times.  This allows the decryptor
 		 * to easily find it.  If any other color appears exactly 700 times, one pixel 
-		 * of that color needs to be changed so that only the encode will be the only color
-		 * that appears exactly 700 times.
+		 * of that color needs to be changed so that only the encode will appear exactly 700 times.
 		 * */
 		while(colorAppearances.containsValue(700)){
 			changeNecessaryColors();
